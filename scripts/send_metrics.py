@@ -124,10 +124,11 @@ def send_metrics_to_segment(event_type, event_properties, config):
 
     # https://segment.com/docs/connections/sources/catalog/libraries/server/http-api/
     headers = {
-        'Authorization': 'Basic ' + base64str(segment_write_key + ':'),
+        'Authorization': 'Basic ' + base64str(f'{segment_write_key}:'),
         'Content-Type': 'application/json',
         'User-Agent': 'edx-devstack-send-metrics',
     }
+
     request = req.Request(
         url = 'https://api.segment.io/v1/track',
         method = 'POST',

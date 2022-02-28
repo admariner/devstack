@@ -49,7 +49,7 @@ def environment_as(config_data):
         if config_data is not None:
             with open(config_path, 'r') as f:
                 # For debugging...
-                print("Metrics config file in effect was: " + f.read())
+                print(f"Metrics config file in effect was: {f.read()}")
 
         try:
             os.remove(config_path)
@@ -316,7 +316,7 @@ def test_handle_ctrl_c():
         # really test the wrapper's own exit code. This assertion
         # really just serves as documentation of behavior.
         p.close()
-        assert p.exitstatus == None
+        assert p.exitstatus is None
         assert p.signalstatus is 2
 
 
